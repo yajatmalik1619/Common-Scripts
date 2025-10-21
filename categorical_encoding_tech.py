@@ -9,7 +9,7 @@ def ordinal_encode(data, low_cardinality=7):
     #Identifying categorical columns
     object_cols = [col for col in data.columns if data[col].dtype == 'object']
     #Filtering categorical columns with low cardinality
-    categorical_cols = []
+    low_cardinality_cols = [col for col in data.columns if data[col].dtype == 'category']
     #Defining an ordinal mapping dictionary
     ordinal_mapping = {}
     #Iterating through each object column
@@ -17,9 +17,9 @@ def ordinal_encode(data, low_cardinality=7):
         #Checking for low cardinality
         if data[col].nunique() < low_cardinality:
             #Adding to categorical columns list
-            categorical_cols.append(col)
+            low_cardinality_cols.append(col)
     #Iterating through each categorical column for ordinal encoding
-    for col in categorical_cols:
+    for col in low_cardinality_cols:
         #Resetting the ordinal mapping dictionary for each column
         ordinal_mapping = {}
         #Getting unique categories in the column
@@ -40,7 +40,7 @@ def one_hot_encode(data, low_cardinality=7):
     #Identifying categorical columns
     object_cols = [col for col in data.columns if data[col].dtype == 'object']
     #Filtering categorical columns with low cardinality
-    low_cardinality_cols = []
+    low_cardinality_cols = [col for col in data.columns if data[col].dtype == 'category']
     #Iterating through each object column
     for col in object_cols:
         #Checking for low cardinality
@@ -69,8 +69,9 @@ def one_hot_encode(data, low_cardinality=7):
 
 # #Uncomment the following lines to test the functions on a provided dataset
 # #loading the sample dataset
-# data = pd.read_csv('C:/Users/yajat/Downloads/Sample_data.csv')
-
+# data = pd.read_csv('Sample_data.csv')
+# #setting display option to show all columns
+# pd.set_option('display.max_columns', None)
 # #user input to choose encoding technique
 # perform_encoding_tech = int(input("Choose Encoding Technique: 1. Ordinal Encoding 2. One-Hot Encoding : ")  )
 # #performing the chosen encoding technique
