@@ -14,8 +14,8 @@ def remove_missing_values(data):
 
 #2. IMPUTE MISSING VALUES
 def impute_missing_values(data):
-    #Identifying columns with missing values
-    missing_cols = [col for col in data.columns if data[col].isnull().any()]
+    #Identifying numerical columns with missing values
+    missing_cols = [col for col in data.columns if data[col].isnull().any() and data[col].dtype in ["int64" , "float64"]]
     #Calculating mean of the columns with missing values
     means = data[missing_cols].mean()
     #Imputing missing values with mean of the columns
@@ -25,8 +25,8 @@ def impute_missing_values(data):
 
 #3. EXTENDED IMPUTE MISSING VALUES
 def extended_impute(data):
-    #Identifying columns with missing values
-    missing_cols = [col for col in data.columns if data[col].isnull().any()]
+    #Identifying numerical columns with missing values
+    missing_cols = [col for col in data.columns if data[col].isnull().any() and data[col].dtype in ["int64" , "float64"]]
     #Iterating through each column with missing values and creating indicator columns
     for col in missing_cols:
         #Creating a new indicator column for missing values
@@ -58,6 +58,7 @@ def extended_impute(data):
 #     result = None
 # #Displaying the result
 # print(result)
+
 
 
 
