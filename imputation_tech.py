@@ -34,7 +34,7 @@ def extended_impute(data):
     #Returning the extended imputed dataframe
     return data
 
-# Uncomment the following lines to test the functions
+# #Uncomment the following lines to test the functions
 # #loading the sample dataset
 # data = pd.read_csv('C:/Users/yajat/Downloads/Sample_data.csv')
 # print(data)

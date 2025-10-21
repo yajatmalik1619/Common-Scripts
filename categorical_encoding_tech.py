@@ -71,6 +71,7 @@ def one_hot_encode(data):
     #Returning the one-hot encoded dataframe
     return x_one_hot
 
+# #Uncomment the following lines to test the functions
 # #loading the sample dataset
 # data = pd.read_csv('C:/Users/yajat/Downloads/Sample_data.csv')
 
