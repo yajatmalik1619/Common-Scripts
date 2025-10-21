@@ -3,6 +3,8 @@ import pandas as pd
 import numpy as np
 
 #defining the scripts for different imputation techniques
+
+#1. REMOVE MISSING VALUES
 def remove_missing_values(data):
     #Identifying columns with missing values
     missing_cols = [col for col in data.columns if data[col].isnull().any()]
@@ -10,6 +12,7 @@ def remove_missing_values(data):
     data = data.drop(missing_cols, axis=1)
     return data
 
+#2. IMPUTE MISSING VALUES
 def impute_missing_values(data):
     #Identifying columns with missing values
     missing_cols = [col for col in data.columns if data[col].isnull().any()]
@@ -20,6 +23,7 @@ def impute_missing_values(data):
     #Returning the imputed dataframe
     return data
 
+#3. EXTENDED IMPUTE MISSING VALUES
 def extended_impute(data):
     #Identifying columns with missing values
     missing_cols = [col for col in data.columns if data[col].isnull().any()]
@@ -34,7 +38,7 @@ def extended_impute(data):
     #Returning the extended imputed dataframe
     return data
 
-# #Uncomment the following lines to test the functions
+# #Uncomment the following lines to test the functions on a provided dataset
 # #loading the sample dataset
 # data = pd.read_csv('C:/Users/yajat/Downloads/Sample_data.csv')
 # print(data)

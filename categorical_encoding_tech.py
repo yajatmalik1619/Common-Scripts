@@ -2,16 +2,14 @@
 import pandas as pd 
 import numpy as np
 
-#defining the scripts for different ordinal encoding 
-def ordinal_encode(data):
+#defining the scripts for different categorical encoding 
+# 1. ORDINAL ENCODING
+#function requires two arguments: dataframe and low cardinality threshold (by default set to 7)
+def ordinal_encode(data, low_cardinality=7):
     #Identifying categorical columns
     object_cols = [col for col in data.columns if data[col].dtype == 'object']
-    #Creating a copy of the original dataframe to perform ordinal encoding
-    x_ordinal = data.copy()
     #Filtering categorical columns with low cardinality
     categorical_cols = []
-    #Taking input to set as the threshold for low cardinality
-    low_cardinality = int(input("Set threshold for low cardinality: "))
     #Defining an ordinal mapping dictionary
     ordinal_mapping = {}
     #Iterating through each object column
@@ -32,19 +30,17 @@ def ordinal_encode(data):
             ordinal_mapping[cat] = i
             i = i+1
         #Applying ordinal encoding based on the mapping dictionary
-        x_ordinal[col] = x_ordinal[col].map(ordinal_mapping)
+        data[col] = data[col].map(ordinal_mapping)
     #Returning the ordinal encoded dataframe
-    return x_ordinal
+    return data
 
-def one_hot_encode(data):
+#2. ONE-HOT ENCODING
+#function requires two arguments: dataframe and low cardinality threshold (by default set to 7)
+def one_hot_encode(data, low_cardinality=7):
     #Identifying categorical columns
     object_cols = [col for col in data.columns if data[col].dtype == 'object']
-    #Creating a copy of the original dataframe to perform one-hot encoding
-    x_one_hot = data.copy()
     #Filtering categorical columns with low cardinality
     low_cardinality_cols = []
-    #Taking input to set as the threshold for low cardinality
-    low_cardinality = int(input("Set threshold for low cardinality: "))
     #Iterating through each object column
     for col in object_cols:
         #Checking for low cardinality
@@ -59,19 +55,19 @@ def one_hot_encode(data):
         for cat in unique_cats:
             #creating a new column for each category
             cat_value = []
-            for value in x_one_hot[col]:
+            for value in data[col]:
                 if value == cat:
                     cat_value.append(1) 
                 else: 
                     cat_value.append(0)
-            x_one_hot[cat] = cat_value
+            data[cat] = cat_value
 
     #Removing the original categorical column
-    x_one_hot = x_one_hot.drop(low_cardinality_cols, axis=1)
+    data = data.drop(low_cardinality_cols, axis=1)
     #Returning the one-hot encoded dataframe
-    return x_one_hot
+    return data
 
-# #Uncomment the following lines to test the functions
+# #Uncomment the following lines to test the functions on a provided dataset
 # #loading the sample dataset
 # data = pd.read_csv('C:/Users/yajat/Downloads/Sample_data.csv')
 
