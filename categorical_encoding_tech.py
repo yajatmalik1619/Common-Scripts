@@ -71,20 +71,20 @@ def one_hot_encode(data):
     #Returning the one-hot encoded dataframe
     return x_one_hot
 
-#loading the sample dataset
-data = pd.read_csv('C:/Users/yajat/Downloads/Sample_data.csv')
+# #loading the sample dataset
+# data = pd.read_csv('C:/Users/yajat/Downloads/Sample_data.csv')
 
-#user input to choose encoding technique
-perform_encoding_tech = int(input("Choose Encoding Technique: 1. Ordinal Encoding 2. One-Hot Encoding : ")  )
-#performing the chosen encoding technique
-if perform_encoding_tech == 1:
-    result = ordinal_encode(data)       
-elif perform_encoding_tech == 2:
-    result = one_hot_encode(data)
-else:
-    print("Invalid Choice")
-    result = None
-#displaying the result
-print(result)
+# #user input to choose encoding technique
+# perform_encoding_tech = int(input("Choose Encoding Technique: 1. Ordinal Encoding 2. One-Hot Encoding : ")  )
+# #performing the chosen encoding technique
+# if perform_encoding_tech == 1:
+#     result = ordinal_encode(data)       
+# elif perform_encoding_tech == 2:
+#     result = one_hot_encode(data)
+# else:
+#     print("Invalid Choice")
+#     result = None
+# #displaying the result
+# print(result)
 
 

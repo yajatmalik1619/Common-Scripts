@@ -34,24 +34,25 @@ def extended_impute(data):
     #Returning the extended imputed dataframe
     return data
 
-#loading the sample dataset
-data = pd.read_csv('C:/Users/yajat/Downloads/Sample_data.csv')
-print(data)
+# Uncomment the following lines to test the functions
+# #loading the sample dataset
+# data = pd.read_csv('C:/Users/yajat/Downloads/Sample_data.csv')
+# print(data)
 
-#User input to choose imputation technique
-perform_impute_tech = int(input("Choose Imputation Technique: 1. Remove Missing Values 2. Impute Missing Values 3. Extended Impute Missing Values : "))
-#Performing the chosen imputation technique
-if perform_impute_tech == 1:
-    result = remove_missing_values(data)
-elif perform_impute_tech == 2:
-    result = impute_missing_values(data)
-elif perform_impute_tech == 3:
-    result = extended_impute(data)
-else: 
-    print("Invalid Choice")
-    result = None
-#Displaying the result
-print(result)
+# #User input to choose imputation technique
+# perform_impute_tech = int(input("Choose Imputation Technique: 1. Remove Missing Values 2. Impute Missing Values 3. Extended Impute Missing Values : "))
+# #Performing the chosen imputation technique
+# if perform_impute_tech == 1:
+#     result = remove_missing_values(data)
+# elif perform_impute_tech == 2:
+#     result = impute_missing_values(data)
+# elif perform_impute_tech == 3:
+#     result = extended_impute(data)
+# else: 
+#     print("Invalid Choice")
+#     result = None
+# #Displaying the result
+# print(result)
 
 
 
