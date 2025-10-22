@@ -14,5 +14,5 @@ Following Scripts are available currently for use.
 | Script Name | Description |
 |--------------|--------------|
 | `categorical_encoding_tech.py` | Demonstrates ordinal and one-hot encoding without scikit-learn. |
-| `imputation_tech.py` | Handles missing values using mean, median, or mode imputation without scikit-learn. |
+| `imputation_tech.py` | Handles missing values by either removing the related columns or by imputating the missing values without using scikit-learn. |
 
