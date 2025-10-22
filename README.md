@@ -1,6 +1,6 @@
 # Common-Scripts
 A collection of basic yet frequently used Python scripts for quick data manipulation, preprocessing, and analysis.
-These scripts are designed to be simple, reusable, and easy to understand — perfect for learners and for reference use in small projects.
+These scripts are designed to be simple, reusable, and easy to understand which makes it perfect for learners and for reference use in small projects.
 
 Each script in this repository includes:
   - Core functionality implemented in plain Python (with optional NumPy / Pandas usage).
