@@ -1,6 +1,7 @@
 #importing the required libraries 
 import pandas as pd 
 import numpy as np
+import statistics as stats
 
 #defining the scripts for different imputation techniques
 
@@ -18,8 +19,24 @@ def impute_missing_values(data):
     missing_cols = [col for col in data.columns if data[col].isnull().any() and data[col].dtype in ["int64" , "float64"]]
     #Calculating mean of the columns with missing values
     means = data[missing_cols].mean()
-    #Imputing missing values with mean of the columns
-    data[missing_cols] = data[missing_cols].fillna(means)
+    #Calculating median of the columns with missing values
+    median = data[missing_cols].median()
+    #Calculating mode of the columns with missing values (using iloc as mode() returns a series)
+    mode = data[missing_cols].mode().iloc[0]
+    #data[missing_cols] = data[missing_cols].fillna(mode)
+    method = int(input("Choose Imputation Method: 1. Mean 2. Median 3. Mode: "))
+    if method == 1:
+        #Imputing missing values with mean of the columns
+        data[missing_cols] = data[missing_cols].fillna(means)
+    elif method == 2:
+        #Imputing missing values with median of the columns
+        data[missing_cols] = data[missing_cols].fillna(median)
+    elif method == 3:
+        #Imputing missing values with mode of the columns
+        data[missing_cols] = data[missing_cols].fillna(mode)
+    else:
+        print("Invalid Choice")
+        return None
     #Returning the imputed dataframe
     return data
 
@@ -33,8 +50,24 @@ def extended_impute(data):
         data[col + '_was_missing'] = data[col].isnull()
     #Calculating mean of the columns with missing values
     means = data[missing_cols].mean()
-    #Imputing missing values with mean of the columns
-    data[missing_cols] = data[missing_cols].fillna(means)
+        #Calculating median of the columns with missing values
+    median = data[missing_cols].median()
+    #Calculating mode of the columns with missing values (using iloc as mode() returns a series)
+    mode = data[missing_cols].mode().iloc[0]
+    #data[missing_cols] = data[missing_cols].fillna(mode)
+    method = int(input("Choose Imputation Method: 1. Mean 2. Median 3. Mode: "))
+    if method == 1:
+        #Imputing missing values with mean of the columns
+        data[missing_cols] = data[missing_cols].fillna(means)
+    elif method == 2:
+        #Imputing missing values with median of the columns
+        data[missing_cols] = data[missing_cols].fillna(median)
+    elif method == 3:
+        #Imputing missing values with mode of the columns
+        data[missing_cols] = data[missing_cols].fillna(mode)
+    else:
+        print("Invalid Choice")
+        return None
     #Returning the extended imputed dataframe
     return data
 
@@ -46,10 +79,11 @@ def remove_rows_with_missing_values(data):
 
 # #Uncomment the following lines to test the functions on a provided dataset
 # #loading the sample dataset
-# data = pd.read_csv('Sample_data.csv')
+data = pd.read_csv('Sample_data.csv')
 # #setting display option to show all columns
-# pd.set_option('display.max_columns', None)
-# print(data)
+pd.set_option('display.max_columns', None)
+print(data)
+print(extended_impute(data))
 # #User input to choose imputation technique
 # perform_impute_tech = int(input("Choose Imputation Technique: 1. Remove Missing Values 2. Impute Missing Values 3. Extended Impute Missing Values 4. Remove Rows with Missing Values: "))
 # #Performing the chosen imputation technique
