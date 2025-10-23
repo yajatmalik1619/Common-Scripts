@@ -79,11 +79,10 @@ def remove_rows_with_missing_values(data):
 
 # #Uncomment the following lines to test the functions on a provided dataset
 # #loading the sample dataset
-data = pd.read_csv('Sample_data.csv')
+# data = pd.read_csv('Sample_data.csv')
 # #setting display option to show all columns
-pd.set_option('display.max_columns', None)
-print(data)
-print(extended_impute(data))
+# pd.set_option('display.max_columns', None)
+# print(data)
 # #User input to choose imputation technique
 # perform_impute_tech = int(input("Choose Imputation Technique: 1. Remove Missing Values 2. Impute Missing Values 3. Extended Impute Missing Values 4. Remove Rows with Missing Values: "))
 # #Performing the chosen imputation technique
