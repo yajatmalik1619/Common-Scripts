@@ -38,12 +38,20 @@ def extended_impute(data):
     #Returning the extended imputed dataframe
     return data
 
+def remove_rows_with_missing_values(data):
+    #Removing rows with any missing values
+    data = data.dropna(axis=0)
+    return data
+
 # #Uncomment the following lines to test the functions on a provided dataset
 # #loading the sample dataset
-# data = pd.read_csv('Sample_data.csv')
-# print(data)
+data = pd.read_csv('Sample_data.csv')
 # #setting display option to show all columns
-# pd.set_option('display.max_columns', None)
+pd.set_option('display.max_columns', None)
+
+print(data)
+print(remove_rows_with_missing_values(data))
+
 # #User input to choose imputation technique
 # perform_impute_tech = int(input("Choose Imputation Technique: 1. Remove Missing Values 2. Impute Missing Values 3. Extended Impute Missing Values : "))
 # #Performing the chosen imputation technique
