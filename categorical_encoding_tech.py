@@ -47,20 +47,34 @@ def one_hot_encode(data, low_cardinality=7):
         if data[col].nunique() < low_cardinality:
             #Adding to low cardinality columns list
             low_cardinality_cols.append(col)
+
+    #Using loops to perform one-hot encoding
     #Iterating through each categorical column for one hot encoding
+    # for col in low_cardinality_cols:
+    #     #Getting unique categories in the column
+    #     unique_cats = data[col].unique()
+    #     #Creating one hot encoded columns
+    #     for cat in unique_cats:
+    #         #creating a new column for each category
+    #         cat_value = []
+    #         for value in data[col]:
+    #             if value == cat:
+    #                 cat_value.append(1) 
+    #             else: 
+    #                 cat_value.append(0)
+    #         data[cat] = cat_value
+    
+    #using vectorized approach to perform one-hot encoding
     for col in low_cardinality_cols:
-        #Getting unique categories in the column
+        # Get unique categories
         unique_cats = data[col].unique()
-        #Creating one hot encoded columns
-        for cat in unique_cats:
-            #creating a new column for each category
-            cat_value = []
-            for value in data[col]:
-                if value == cat:
-                    cat_value.append(1) 
-                else: 
-                    cat_value.append(0)
-            data[cat] = cat_value
+        # Create 2D boolean matrix using broadcasting
+        one_hot_matrix = (data[col].values[:, None] == unique_cats[None, :]).astype(int)
+        # Create new column names
+        new_col_names = [cat for cat in unique_cats] 
+        # Convert to DataFrame and concatenate
+        one_hot_df = pd.DataFrame(one_hot_matrix, columns=new_col_names, index=data.index)
+        data = pd.concat([data, one_hot_df], axis=1)
 
     #Removing the original categorical column
     data = data.drop(low_cardinality_cols, axis=1)

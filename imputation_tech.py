@@ -126,7 +126,7 @@ def extended_impute(data):
     for col in missing_cols:
         #Creating a new indicator column for missing values
         data[col + '_was_missing'] = data[col].isnull()
-        
+
     # Uncomment the following block to use pandas inherent functions for imputation (or vice versa)
     # #Using pandas functions for mean, median and mode calculations
     # #Calculating mean of the columns with missing values
@@ -235,26 +235,26 @@ def remove_rows_with_missing_values(data):
 
 # #Uncomment the following lines to test the functions on a provided dataset
 # #loading the sample dataset
-data = pd.read_csv('C:\\Users\\Kanishka\\Code\\Common-Scripts\\Sample_data.csv')
-#setting display option to show all columns
-pd.set_option('display.max_columns', None)
-print(data)
-#User input to choose imputation technique
-perform_impute_tech = int(input("Choose Imputation Technique: 1. Remove Missing Values 2. Impute Missing Values 3. Extended Impute Missing Values 4. Remove Rows with Missing Values: "))
-#Performing the chosen imputation technique
-if perform_impute_tech == 1:
-    result = remove_missing_values(data)
-elif perform_impute_tech == 2:
-    result = impute_missing_values(data)
-elif perform_impute_tech == 3:
-    result = extended_impute(data)
-elif perform_impute_tech == 4:
-    result = remove_rows_with_missing_values(data)
-else: 
-    print("Invalid Choice")
-    result = None
-#Displaying the result
-print(result)
+# data = pd.read_csv('Sample_data.csv')
+# #setting display option to show all columns
+# pd.set_option('display.max_columns', None)
+# print(data)
+# #User input to choose imputation technique
+# perform_impute_tech = int(input("Choose Imputation Technique: 1. Remove Missing Values 2. Impute Missing Values 3. Extended Impute Missing Values 4. Remove Rows with Missing Values: "))
+# #Performing the chosen imputation technique
+# if perform_impute_tech == 1:
+#     result = remove_missing_values(data)
+# elif perform_impute_tech == 2:
+#     result = impute_missing_values(data)
+# elif perform_impute_tech == 3:
+#     result = extended_impute(data)
+# elif perform_impute_tech == 4:
+#     result = remove_rows_with_missing_values(data)
+# else: 
+#     print("Invalid Choice")
+#     result = None
+# #Displaying the result
+# print(result)
 
 
 
