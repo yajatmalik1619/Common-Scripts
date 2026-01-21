@@ -7,7 +7,7 @@ Each script in this repository includes:
   - A sample dataset and example code (commented out by default)(wherever is required).
   - Clear structure for direct use or customization.
 
-To see how a script works, simply uncomment the sample code section and run the file.
+To see how a script works, simply uncomment the sample code section and run the file. (for categorical encoding and imputation tech)
 
 
 Following Scripts are available currently for use.
@@ -15,6 +15,7 @@ Following Scripts are available currently for use.
 |--------------|--------------|
 | `categorical_encoding_tech.py` | Demonstrates ordinal and one-hot encoding without scikit-learn. |
 | `imputation_tech.py` | Handles missing values by either removing the related columns or by imputating the missing values without using scikit-learn. |
-| `postfix_full.py` | A end-to-end code designed for performing the basic postfix solution of algebraic equations. |
+| `postfix_full.py` | An end-to-end code designed for performing the basic postfix solution of algebraic equations. |
+| `Karatsuba.cpp` | A script for performing integer calculation using karatsuba algorithm. |
 
-The Postfix file is separate from the other two files, it was an old code lying around, which I just thought of using. 
+The Postfix file is separate from the other files, it was an old code lying around, which I just thought of using. 
