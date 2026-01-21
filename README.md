@@ -15,4 +15,6 @@ Following Scripts are available currently for use.
 |--------------|--------------|
 | `categorical_encoding_tech.py` | Demonstrates ordinal and one-hot encoding without scikit-learn. |
 | `imputation_tech.py` | Handles missing values by either removing the related columns or by imputating the missing values without using scikit-learn. |
+| `postfix_full.py` | A end-to-end code designed for performing the basic postfix solution of algebraic equations. |
 
+The Postfix file is separate from the other two files, it was an old code lying around, which I just thought of using. 
